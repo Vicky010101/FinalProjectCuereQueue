@@ -1,0 +1,188 @@
+:root {
+  /* Accent color: teal */
+  --accent: #0f766e;
+  --accent-600: #0d675f;
+  --accent-200: #c7f3ef;
+  --border-strong: #e6eef5;
+  /* CureQueue health-tech palette */
+  --cure-blue: #2E8BC0;
+  --cure-teal: #0C7B93;
+  --cure-light: #B1D4E0;
+  /* Form layout tokens */
+  --form-radius: 14px;
+  --form-gap: 16px;
+  --form-gap-lg: 20px;
+  --form-padding: 24px;
+}
+
+/* Navbar: flatter, cleaner, fully horizontal */
+.navbar {
+  background: #ffffff !important;
+  border-bottom: 1px solid var(--border-strong) !important;
+  backdrop-filter: none !important;
+}
+.navbar-inner {
+  height: 72px !important; /* slightly taller for better presence */
+}
+
+/* Table styles for manager dashboard */
+.table-modern { width: 100%; display: grid; gap: 8px; }
+.table-row { display: grid; grid-template-columns: 1.2fr 1.2fr 1fr 1fr 1fr 1fr 1.2fr; align-items: center; padding: 10px 12px; border: 1px solid var(--border-strong); border-radius: 10px; background: #fff; }
+.table-header { background: #f8fafc; font-weight: 600; color: #334155; }
+.table-cell { font-size: 14px; }
+@media (max-width: 1024px) { .table-row { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+@media (max-width: 640px) { .table-row { grid-template-columns: 1fr 1fr; } }
+.brand {
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  letter-spacing: -0.01em !important;
+}
+.navbar .btn {
+  border-radius: 999px !important; /* pill buttons */
+  padding: 8px 14px !important;
+}
+
+/* Forms: Option A (clean flat) + Option C (outlined minimal) */
+.form-modern .label {
+  color: #5b6b7a;
+  font-weight: 500;
+}
+.form-modern .input,
+.form-modern select,
+.form-modern textarea {
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  padding: 10px 12px !important;
+}
+.form-modern .input:focus,
+.form-modern select:focus,
+.form-modern textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(15,118,110,0.16) !important;
+  outline: none !important;
+}
+.form-modern ::placeholder { color: #94a3b8; }
+
+/* Compact spacing for big forms (like AppointmentBookingForm) */
+.form-compact .form-field { margin-top: 8px !important; }
+.form-compact .input,
+.form-compact select,
+.form-compact textarea { padding: 9px 10px !important; }
+
+/* Subtle hover for primary actions */
+.btn-primary {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+.btn-primary:hover { filter: brightness(0.97); }
+
+/* Appointment form: professional, sleek, patient-friendly */
+.appointment-section {
+  padding: 2rem 0 !important; /* visual isolation from other components */
+}
+
+.appointment-card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 640px; /* shrink form width for better readability */
+  margin: 1.5rem auto 2rem !important; /* center the card with vertical spacing */
+  border: 1px solid var(--border-strong) !important;
+  background: #ffffff !important;
+  border-radius: var(--form-radius) !important;
+  padding: var(--form-padding) !important;
+  box-shadow: 0 12px 30px rgba(15, 64, 99, 0.08), 0 6px 12px rgba(15, 64, 99, 0.06) !important; /* soft, professional shadow */
+}
+.appointment-card::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cure-blue) 0%, var(--cure-teal) 100%);
+}
+/* Header spacing and title accent */
+.appointment-card .card-header { margin-bottom: 0.75rem; }
+.appointment-card .card-title {
+  color: var(--cure-teal);
+  letter-spacing: -0.01em;
+}
+
+/* Form grid and spacing */
+.appointment-form {
+  display: grid;
+  gap: var(--form-gap-lg);
+}
+.appointment-form .grid-2 { gap: var(--form-gap); }
+
+/* Inputs: outlined, consistent sizing, smooth focus */
+.appointment-form .input,
+.appointment-form select,
+.appointment-form textarea {
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+  font-size: 14px !important;
+  background: #ffffff !important;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease !important;
+}
+.appointment-form .input:focus,
+.appointment-form select:focus,
+.appointment-form textarea:focus {
+  border-color: var(--cure-blue) !important;
+  box-shadow: 0 0 0 3px rgba(46, 139, 192, 0.2) !important;
+  outline: none !important;
+}
+.appointment-form .label {
+  color: #5b6b7a !important;
+  font-weight: 500 !important;
+}
+
+/* Buttons: pill, prominent, with hover glow */
+.appointment-form .btn {
+  border-radius: 999px !important;
+  padding: 10px 18px !important;
+  font-weight: 600 !important;
+  transition: box-shadow .18s ease, transform .12s ease !important;
+}
+.btn-pill { border-radius: 999px !important; }
+.appointment-form .btn-primary {
+  background: linear-gradient(135deg, var(--cure-teal) 0%, var(--cure-blue) 100%) !important;
+  border-color: transparent !important;
+}
+.appointment-form .btn-primary:hover {
+  box-shadow: 0 10px 22px rgba(46, 139, 192, 0.25) !important;
+  transform: translateY(-1px);
+}
+
+/* Heading in form context (if used) */
+.appointment-form h2 {
+  margin: 0 0 0.75rem 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cure-teal);
+}
+
+/* Responsive: stack fields on small screens */
+@media (max-width: 768px) {
+  .appointment-form .grid-2 { grid-template-columns: 1fr !important; }
+  .appointment-card { padding: 20px !important; }
+}
+
+/* Sidebar: full-height below navbar, collapsible on all breakpoints */
+.sidebar {
+  position: fixed !important;
+  top: 72px !important; /* match .navbar-inner height */
+  left: 0 !important;
+  width: 256px !important;
+  height: calc(100vh - 72px) !important;
+  transform: translateX(-100%) !important;
+  transition: transform .2s ease !important;
+  z-index: 30 !important;
+}
+.sidebar.open { transform: translateX(0) !important; }
+.sidebar nav { height: 100% !important; overflow-y: auto !important; }
+
+/* Main content shift when sidebar is open */
+.main-shift { margin-left: 0 !important; transition: margin-left .2s ease; }
+.main-shift.sidebar-open { margin-left: 256px !important; }
